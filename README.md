@@ -1,3 +1,35 @@
+# sum plugin for obsidian
+
+_see project on [github](https://github.com/qguv/obsidian-sum-plugin)_
+
+- searches for lines that end in `(€0)` or `(€0 total)` (where 0 is some amount with up to two decimal places, separated by `.` or `,`)
+- sums matching _non-header_ lines per header-delimited section
+- updates matching _header_ lines to the calculated sum
+- values in headers are rounded _on display_
+  - rounding error is _not_ accumulated in nested headers
+
+## example
+
+before:
+
+    ## groceries (€)
+    ### grains
+    - oats (€1)
+    - rice (€1.23)
+    ### fruit (€9999)
+    - apple (€0.31)
+    - potato (€0.5)
+
+after:
+
+    ## groceries (€3)
+    ### grains
+    - oats (€1)
+    - rice (€1.23)
+    ### fruit (€1)
+    - apple (€0.31)
+    - potato (€0.5)
+
 ## developing
 
 - Install NodeJS, then run `npm i` in the command line under your repo folder.
@@ -29,3 +61,5 @@
 ## obsidian docs
 
 See https://docs.obsidian.md
+
+<!-- vi: set ts=2 sts=2 sw=2 et: -->
