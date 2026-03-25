@@ -10,6 +10,7 @@ if you want to view the source, please visit the github repository of this plugi
 `;
 
 const prod = (process.argv[2] === "production");
+const minify = false; // prod
 
 const context = await esbuild.context({
 	banner: {
@@ -35,10 +36,10 @@ const context = await esbuild.context({
 	format: "cjs",
 	target: "es2018",
 	logLevel: "info",
-	sourcemap: prod ? false : "inline",
+	sourcemap: minify ? false : "inline",
 	treeShaking: true,
 	outfile: "main.js",
-	minify: prod,
+	minify: minify,
 });
 
 if (prod) {
