@@ -1,6 +1,6 @@
 import {Editor, MarkdownView, Plugin} from 'obsidian';
 
-const display_sum_re = /(?<before>\(€)(?<value>[0-9.,]*)(?<after>( total)?\))$/;
+const display_sum_re = /(?<before>\(€)(?<value>[0-9.,]*)(?<after>( total)?\))\s*$/;
 const header_re = /^#+/;
 
 function get_header_depth(s: string): number | undefined {
